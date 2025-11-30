@@ -2,7 +2,6 @@ package com.rewardservice.config;
 
 import feign.Response;
 import feign.codec.ErrorDecoder;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
  * Provides a Retryer bean to configure retry behavior.
  */
 @Configuration
-@EnableFeignClients
 public class FeignClientConfig {
 
     @Bean
