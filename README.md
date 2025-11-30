@@ -28,3 +28,4 @@
 * Business logic of reward calculation is implemented using the strategy pattern, allowing for easy extension and modification of reward calculation strategies.
 * Redis is used for caching frequently accessed data to reduce latency and improve system performance.
 * Data fetched from external systems on day basis for simplicity, but this can be provided as parameter to the API to fetch data for custom date range.
+* Global exception handlers are implemented in the controller layer to handle exceptions consistently across the application and provide meaningful error responses and codes to clients.
