@@ -16,7 +16,7 @@ public class CasinoListener {
 
     private final CasinoAdapter casinoAdapter;
 
-    @KafkaListener(topics = "casino-operation", groupId = "reward-service-group",
+    @KafkaListener(topics = "casino-operations", groupId = "reward-service-group",
             containerFactory = "kafkaListenerContainerFactory")
     public void listenForCasinoOperations(@Header(KafkaHeaders.RECEIVED_KEY) String customerId) {
         if (customerId == null || customerId.isEmpty()) {

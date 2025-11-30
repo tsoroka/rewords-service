@@ -26,3 +26,5 @@
 * The client layer is responsible for communication with external systems such as microservices for restaurants, casinos, and hotels. It uses OpenFeign to simplify HTTP client code and Resilience4j to implement circuit breakers and retries for fault tolerance.
 * The listener layer contains Kafka listeners that consume messages from various topics related to restaurants, casinos, and hotels. These listeners process incoming messages and trigger cashed data eviction for specific customer.
 * Business logic of reward calculation is implemented using the strategy pattern, allowing for easy extension and modification of reward calculation strategies.
+* Redis is used for caching frequently accessed data to reduce latency and improve system performance.
+* Data fetched from external systems on day basis for simplicity, but this can be provided as parameter to the API to fetch data for custom date range.

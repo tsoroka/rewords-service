@@ -16,7 +16,7 @@ public class HotelListener {
 
     private final HotelAdapter hotelAdapter;
 
-    @KafkaListener(topics = "hotel-reservation", groupId = "reward-service-group",
+    @KafkaListener(topics = "hotel-reservations", groupId = "reward-service-group",
             containerFactory = "kafkaListenerContainerFactory")
     public void listenForHotelReservation(@Header(KafkaHeaders.RECEIVED_KEY) String customerId) {
         if (customerId == null || customerId.isEmpty()) {

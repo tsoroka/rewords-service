@@ -16,7 +16,7 @@ public class RestaurantListener {
 
     private final RestaurantAdapter restaurantAdapter;
 
-    @KafkaListener(topics = "restaurant-reservation", groupId = "reward-service-group",
+    @KafkaListener(topics = "restaurant-reservations", groupId = "reward-service-group",
             containerFactory = "kafkaListenerContainerFactory")
     public void listenForRestaurantReservation(@Header(KafkaHeaders.RECEIVED_KEY) String customerId) {
         if (customerId == null || customerId.isEmpty()) {
