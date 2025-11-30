@@ -1,6 +1,6 @@
 package com.rewardservice.controller.handler;
 
-import com.rewardservice.service.model.DataFetchException;
+import com.rewardservice.service.model.exception.DataFetchException;
 import com.rewardservice.service.model.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;

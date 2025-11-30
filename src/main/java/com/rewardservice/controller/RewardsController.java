@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotEmpty;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -14,7 +15,8 @@ public class RewardsController {
 
     private final RewardService rewardService;
 
-    @GetMapping("/customers/{customerId}/reword-points")
+    @GetMapping("api/v1/customers/{customerId}/reword-points")
+    @ResponseBody
     public RewardPointsResponse getRewardPoints(@NotEmpty @PathVariable("customerId") String customerId) {
         return rewardService.calculateRewardPoints(customerId);
     }

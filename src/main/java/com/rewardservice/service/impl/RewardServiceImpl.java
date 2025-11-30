@@ -10,7 +10,7 @@ import com.rewardservice.dto.RewardPointsDataDto;
 import com.rewardservice.rewardcalculation.RewordCalculationStrategy;
 import com.rewardservice.rewardcalculation.impl.BaseRewordCalculationStrategy;
 import com.rewardservice.service.RewardService;
-import com.rewardservice.service.model.DataFetchException;
+import com.rewardservice.service.model.exception.DataFetchException;
 import com.rewardservice.service.model.RewardPointsResponse;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.RequiredArgsConstructor;
