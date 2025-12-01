@@ -7,6 +7,7 @@ import com.rewardservice.dto.CasinoDto;
 import com.rewardservice.dto.HotelDto;
 import com.rewardservice.dto.RestaurantDto;
 import com.rewardservice.dto.RewardPointsDataDto;
+import com.rewardservice.rewardcalculation.RewardCalculationFactory;
 import com.rewardservice.rewardcalculation.RewordCalculationStrategy;
 import com.rewardservice.rewardcalculation.impl.BaseRewordCalculationStrategy;
 import com.rewardservice.service.RewardService;
@@ -34,6 +35,8 @@ public class RewardServiceImpl implements RewardService {
 
     private final CasinoAdapter casinoAdapter;
 
+    private final RewardCalculationFactory rewardCalculationFactory;
+
     @Override
     public RewardPointsResponse calculateRewardPoints(@NotEmpty String customerId) {
         CompletableFuture<List<RestaurantDto>> bookedRestaurantsFuture = CompletableFuture.supplyAsync(()
@@ -56,8 +59,7 @@ public class RewardServiceImpl implements RewardService {
                     bookedRestaurants.size(), bookedHotels.size(), casinos.size(), customerId);
 
             // Calculate total reward points
-            RewordCalculationStrategy calculationStrategy =
-                    new BaseRewordCalculationStrategy(bookedRestaurants, casinos, bookedHotels);
+            RewordCalculationStrategy calculationStrategy = rewardCalculationFactory.createStrategy(bookedRestaurants, casinos, bookedHotels);
             RewardPointsDataDto rewardPointsData = calculationStrategy.calculateRewordsPoints();
 
             return new RewardPointsResponse(customerId, rewardPointsData);
